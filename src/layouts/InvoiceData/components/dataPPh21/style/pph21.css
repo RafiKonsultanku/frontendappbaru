@@ -10,6 +10,153 @@
     padding: 8px;
     background: linear-gradient(195deg, #49a3f1, #1A73E8);
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.detailContainer {
+    display: flex;
+    margin-top: 20px;
+}
+
+.detailData {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09); 
+    box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09);
+    margin-right: 20px;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 10px;
+}
+
+.invoiceDataAction {
+    flex: 0.5;
+    max-height: 120px;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09); 
+    box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09);
+    margin-right: 20px;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 10px;
+}
+
+.detailPenjual {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.penjualTitle {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.penjualName {
+    font-weight: 300;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.detailFaktur {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.detailFakturTitle {
+    font-size: 15px;
+    color: rgb(175, 170, 170);
+}
+
+.detailFakturInfo {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.detailFakturInfo {
+    display: flex;
+}
+
+.nomorFaktur {
+    flex: 2;
+}
+
+.tanggalTempoFaktur {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.jatuhTempoFaktur {
+    margin-top: 20px;
+}
+
+table {
+    margin: 30px 0px;
+    font-size: 13px;
+    font-weight: 300;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+.detailHarga {
+    margin-top: 20px;
+}
+
+.detailHargaFakturTitle {
+    font-size: 15px;
+    color: rgb(175, 170, 170);
+}
+
+.detailHargaFakturInfo {
+    display: flex;
+}
+
+.hargaFakturItem {
+    margin: 8px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+.hargaFaktur {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 14px;
+    border: 1px solid #9b9b9b;
+    padding: 10px;
+    border-style: dashed;
+}
+
+.catatanDetailFaktur {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 14px;
+    margin-left: 35px;
+    font-weight: 300;
+}
+
+.isiCatatan {
+    margin-top: 10px;
+    font-weight: 300;
+    border: 1px solid #9b9b9b;
+    padding: 10px;
+    border-style: dashed;
+}
+
+.catatanPembayaran {
+    margin-top: 20px;
 }
