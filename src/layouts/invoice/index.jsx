@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { Link } from "react-router-dom";
 
 export default function Invoice() {
   const [value, setValue] = React.useState('1');
@@ -15,8 +16,13 @@ export default function Invoice() {
   };
 
   return (
-
   <Box className='invoice' sx={{ width: '100%', typography: 'body1' }}>
+    <div className="invoiceIntroduction">
+      <h2>Invoice</h2>
+      <Link to="/invoice/create">
+        <button className='invoiceAddButton'>Tambah Invoice</button>
+      </Link>  
+    </div>
   <TabContext value={value}>
     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <TabList onChange={handleChange} aria-label="lab API tabs example">

@@ -1,11 +1,15 @@
 import './style/pph21.css';
+import { Link } from "react-router-dom";
+import ButtonBack from "../../../../components/Button/buttonBack/index"
 
 export default function index() {
   return (
     <>
         <div className="invoiceDetailContainer">
-            <h2 className="invoiceDetailTitle">Detail Invoice</h2>
-            <button className='invoiceEditButton'>Edit Invoice</button>
+          <Link to="/invoice">
+            <ButtonBack />
+          </Link>  
+          <h2 className="invoiceDetailTitle">Detail Invoice</h2>
         </div>
 
         <div className="detailContainer">
@@ -69,7 +73,13 @@ export default function index() {
               </div>
             </div>
           </div>
-          <div className="invoiceDataAction"></div>
+          <div className="invoiceDataAction">
+            <Link to="/invoice/edit/">
+              <button className='invoiceEditButton'>Edit Invoice</button>
+            </Link>
+          
+          <button className='invoiceDeleteButton'>Delete Invoice</button>
+          </div>
         </div>
         
     </>

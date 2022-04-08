@@ -1,14 +1,26 @@
 .invoiceDetailContainer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center;
+    justify-content: space-between; */
 }
 
 .invoiceEditButton {
     border: none;
-    width: 90px;
-    padding: 8px;
+    width: 120px;
+    margin-top: 12px;
+    padding: 14px;
     background: linear-gradient(195deg, #49a3f1, #1A73E8);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.invoiceDeleteButton {
+    border: none;
+    width: 120px;
+    margin-top: 12px;
+    padding: 14px;
+    background: linear-gradient(195deg, #f16b49, #e84a1a);
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -38,6 +50,7 @@
     margin-right: 20px;
     border: 1px solid rgb(240, 240, 240);
     border-radius: 10px;
+    text-align: center;
 }
 
 .detailPenjual {
@@ -99,17 +112,17 @@ table {
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #cecece;
     text-align: left;
     padding: 8px;
   }
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #ebebeb;
   }
 
 .detailHarga {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .detailHargaFakturTitle {

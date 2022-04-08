@@ -1,8 +1,8 @@
 .seeInvoice {
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px 10px;
-    background-color: blue;
+    background: linear-gradient(195deg, #49a3f1, #1A73E8);
     color: white;
     cursor: pointer;
 }
