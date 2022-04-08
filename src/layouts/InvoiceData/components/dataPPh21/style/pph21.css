@@ -1,0 +1,15 @@
+.invoiceDetailContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.invoiceEditButton {
+    border: none;
+    width: 90px;
+    padding: 8px;
+    background: linear-gradient(195deg, #49a3f1, #1A73E8);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,70 @@
+.featured {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.featuredItem {
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09); 
+    box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09);
+    background: linear-gradient(195deg, #1a4d7a, #021a3a);
+    color: white;
+}
+
+.featuredItemTransaksi {
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09); 
+    box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09);
+    background: linear-gradient(195deg, #abad32, #8b8d06);
+    color: white;
+}
+
+.featuredItemKas {
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09); 
+    box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09);
+    background: linear-gradient(195deg, #7a251a, #3a1202);
+    color: white;
+}
+
+.featuredItemSaldo {
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09); 
+    box-shadow: 0px 0px 7px 1px rgba(179,179,179,0.09);
+    background: linear-gradient(195deg, #227a1a, #043a02);
+    color: white;
+}
+
+.featuredTitle {
+    font-size: 15px;
+}
+
+.featuredInvoiceContainer {
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.featuredInvoice {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
