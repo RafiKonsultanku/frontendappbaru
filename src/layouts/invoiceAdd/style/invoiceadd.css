@@ -1,5 +1,9 @@
-.newInvoice {
+.newInvoiceContainer {
     flex: 4;
     padding: 20px;
     margin-top: 15px;
+}
+
+.invoiceAddTitle {
+    display: flex;
 }

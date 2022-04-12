@@ -1,0 +1,242 @@
+.invoiceForm {
+  font-size: 14px;
+  padding: 100px 20px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(179, 179, 179, 0.09);
+  box-shadow: 0px 0px 7px 1px rgba(179, 179, 179, 0.09);
+  border: 1px solid rgb(240, 240, 240);
+}
+
+.formSectionOne {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.dataPenjualOpening {
+  margin-bottom: 35px;
+  color: rgb(175, 170, 170);
+}
+
+.dataPenjualOpening h4 {
+  font-weight: 400;
+}
+
+.dropdownForm {
+  width: 250px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.dataFakturOpening {
+  margin-top: 80px;
+  margin-bottom: 35px;
+  margin-bottom: 35px;
+  color: rgb(175, 170, 170);
+}
+
+.formSectionTwo {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.dataFakturTitle {
+  font-weight: 400;
+}
+
+.tanggalMasaFaktur {
+  display: flex;
+  align-items: center;
+}
+
+.dateInput {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+}
+
+.formSectionThree {
+  /* display: flex; */
+  padding: 20px;
+  border: 1px solid #9b9b9b;
+  border-style: dashed;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.sectionThreeSub {
+  display: flex;
+}
+
+.sectionThreeSubs {
+  display: flex;
+}
+
+.diskonItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.jenisJasaItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.jenisPajakItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.fieldJenisItem {
+  width: 200px;
+  margin-top: 8px;
+}
+
+.namaItem {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.kuantitasItem {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.conclusion {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalHargaItem {
+  margin-top: 20px;
+}
+
+.totalHargaItem p {
+  margin-top: 10px;
+}
+
+.deleteButton {
+  /* align-items: center; */
+  /* display: flex; */
+  margin-top: 25px;
+}
+
+.deleteButtonItem {
+  margin-left: 20px;
+  width: 100px;
+  color: red;
+  height: 34px;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid red;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.buttonAddItem {
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formSectionFour {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.totalHargaAll {
+  justify-content: space-between;
+  display: flex;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.nilaiTransaksi {
+  justify-content: space-between;
+  display: flex;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.hargaDetail {
+  flex: 1;
+}
+
+.catatanFaktur {
+  flex: 1.5;
+}
+
+.catatanFaktur1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.catatanFaktur1 label {
+  margin-bottom: 10px;
+}
+
+.infoPembayaranFaktur {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.infoPembayaranFaktur label {
+  margin-bottom: 10px;
+}
+
+.textareaCatatan {
+  border-style: dotted;
+  height: 100px;
+  resize: none;
+}
+
+.submitFormFaktur {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(195deg, #49a3f1, #1a73e8);
+  border-radius: 5px;
+  float: right;
+  margin-top: 30px;
+  color: white;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  padding: 8px 30px 8px 10px;
+  margin-top: 10px;
+}
+
+hr {
+  border: 0.2px solid rgb(235, 234, 234);
+  width: 90%;
+  margin: 20px 0px;
+}
