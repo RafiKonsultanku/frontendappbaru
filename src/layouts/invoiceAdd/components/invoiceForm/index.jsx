@@ -81,7 +81,7 @@ const Item = ({ id }) => {
   return (
     <div className="formSectionThree">
       <div className="sectionThreeSub">
-        <input type="hidden" value={id} />
+        <input className="inputForm" type="hidden" value={id} />
         <div className="jenisItem">
           <label>Jenis Item</label>
           <Dropdown
@@ -93,23 +93,23 @@ const Item = ({ id }) => {
         </div>
         <div className="namaItem">
           <label>Nama Item</label>
-          <input type="text" />
+          <input className="inputForm" type="text" />
         </div>
         <div className="kuantitasItem">
           <label>Kuantitas Item</label>
-          <input type="number" />
+          <input className="inputForm" type="number" />
         </div>
 
         <div className="kuantitasItem">
           <label>Harga Satuan</label>
-          <input type="number" />
+          <input className="inputForm" type="number" />
         </div>
       </div>
 
       <div className="sectionThreeSubs">
         <div className="diskonItem">
           <label>Total Diskon</label>
-          <input type="number" />
+          <input className="inputForm" type="number" />
         </div>
         <div className="jenisJasaItem">
           <label>Jenis Jasa</label>
@@ -193,7 +193,7 @@ export default function Index() {
         <div className="formSectionTwo">
           <div className="nomorFaktur">
             <label>Nomor Faktur</label>
-            <input type="text" />
+            <input className="inputForm" type="text" />
           </div>
 
           <div className="tanggalFaktur">
@@ -208,7 +208,11 @@ export default function Index() {
                   }}
                   renderInput={({ inputRef, inputProps, InputProps }) => (
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                      <input ref={inputRef} {...inputProps} />
+                      <input
+                        className="inputForm"
+                        ref={inputRef}
+                        {...inputProps}
+                      />
                       {InputProps?.endAdornment}
                     </Box>
                   )}

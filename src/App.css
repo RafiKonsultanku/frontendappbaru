@@ -1,3 +1,8 @@
 .container {
-    display: flex;
+  display: flex;
+}
+
+.linkSidebar {
+  text-decoration: none;
+  color: white;
 }

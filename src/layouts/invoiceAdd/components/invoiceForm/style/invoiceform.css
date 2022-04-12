@@ -224,7 +224,7 @@ label {
   margin-right: 20px;
 }
 
-input {
+.inputForm {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
