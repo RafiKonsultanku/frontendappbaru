@@ -1,4 +1,5 @@
 import Login from "./components/Auth/LoginForm";
+import Register from "./components/Auth/RegisterForm";
 // import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./layouts/dashboard";
@@ -24,6 +25,7 @@ function App() {
       {/* <Topbar /> */}
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <div className="container">
         <Routes>

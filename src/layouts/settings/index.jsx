@@ -1,10 +1,11 @@
-import React from 'react';
-import '../settings/style/settings.css';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import React from "react";
+import "../settings/style/settings.css";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import PengaturanAkun from "../settings/components/pengaturanAkun";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -35,7 +36,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
+    "aria-controls": `vertical-tabpanel-${index}`,
   };
 }
 
@@ -47,8 +48,9 @@ export default function VerticalTabs() {
   };
 
   return (
-    <Box className='settings'
-      sx={{bgcolor: 'background.paper', display: 'flex', height: 224 }}
+    <Box
+      className="settings"
+      sx={{ bgcolor: "background.paper", display: "flex" }}
     >
       <Tabs
         orientation="vertical"
@@ -56,14 +58,14 @@ export default function VerticalTabs() {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider'}}
+        sx={{ borderRight: 1, borderColor: "divider" }}
       >
         <Tab label="Pengaturan Akun" {...a11yProps(0)} />
         <Tab label="Pengaturan Pajak" {...a11yProps(1)} />
         <Tab label="Pengaturan Transaksi" {...a11yProps(2)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Pengaturan Akun
+        <PengaturanAkun />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Pengaturan Pajak

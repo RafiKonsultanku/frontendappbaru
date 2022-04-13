@@ -6,5 +6,6 @@
 
 .dashboardWidget {
   display: flex;
+  padding-left: 20px;
   /* margin: 20px; */
 }

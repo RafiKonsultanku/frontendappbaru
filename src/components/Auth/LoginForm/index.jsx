@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "../LoginForm/login.css";
 
-class SignInForm extends Component {
+class LoginForm extends Component {
   constructor() {
     super();
 
@@ -68,6 +68,7 @@ class SignInForm extends Component {
                   type="email"
                   id="email"
                   className="formFieldInput"
+                  autoComplete="none"
                   placeholder="Enter your email"
                   name="email"
                   value={this.state.email}
@@ -91,7 +92,9 @@ class SignInForm extends Component {
               </div>
 
               <div className="formField">
-                <button className="formFieldButton">MASUK</button>{" "}
+                <button type="submit" className="formFieldButton">
+                  MASUK
+                </button>{" "}
               </div>
             </form>
           </div>
@@ -101,4 +104,4 @@ class SignInForm extends Component {
   }
 }
 
-export default SignInForm;
+export default LoginForm;

@@ -94,7 +94,7 @@
   width: 85%;
   background-color: transparent;
   border: none;
-  color: white;
+  color: rgb(119, 119, 119) !important;
   outline: none;
   border-bottom: 1px solid #445366;
   font-size: 1em;
