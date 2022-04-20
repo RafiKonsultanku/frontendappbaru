@@ -24,7 +24,7 @@ function App() {
     <Router>
       {/* <Topbar /> */}
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route exact path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
       <div className="container">

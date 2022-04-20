@@ -171,6 +171,7 @@ const jenisJasaItem = [
 
 export default function Index() {
   const [value, setValue] = React.useState(null);
+  const [valueTwo, setValueTwo] = React.useState(null);
 
   return (
     <div className="invoiceForm">
@@ -205,6 +206,34 @@ export default function Index() {
                   value={value}
                   onChange={(newValue) => {
                     setValue(newValue);
+                  }}
+                  renderInput={({ inputRef, inputProps, InputProps }) => (
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <input
+                        className="inputForm"
+                        ref={inputRef}
+                        {...inputProps}
+                      />
+                      {InputProps?.endAdornment}
+                    </Box>
+                  )}
+                />
+              </LocalizationProvider>
+            </div>
+          </div>
+        </div>
+        <div className="formSectionTwo">
+          <div className="nomorFaktur"></div>
+
+          <div className="tanggalFaktur">
+            <div className="tanggalMasaFaktur">
+              <label>Jatuh Tempo</label>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  label="Custom input"
+                  value={valueTwo}
+                  onChange={(newValue) => {
+                    setValueTwo(newValue);
                   }}
                   renderInput={({ inputRef, inputProps, InputProps }) => (
                     <Box sx={{ display: "flex", alignItems: "center" }}>

@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import PengaturanAkun from "../settings/components/pengaturanAkun";
 import PengaturanPajak from "../settings/components/pengaturanPajak";
+import PengaturanTransaksi from "../settings/components/pengaturanTransaksi";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +73,7 @@ export default function VerticalTabs() {
         <PengaturanPajak />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Pengaturan Transaksi
+        <PengaturanTransaksi />
       </TabPanel>
     </Box>
   );

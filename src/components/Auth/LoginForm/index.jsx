@@ -1,39 +1,68 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../LoginForm/login.css";
+import AuthContext from "../../../context/AuthProvider";
+import axios from "../../../api/axios";
 
-class LoginForm extends Component {
-  constructor() {
-    super();
+const LOGIN_URL = "/api/login";
 
-    this.state = {
-      email: "",
-      password: "",
-    };
+const LoginForm = () => {
+  const { setAuth } = useContext(AuthContext);
+  const userRef = useRef();
+  const errRef = useRef();
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const navigate = useNavigate();
 
-  handleChange(event) {
-    let target = event.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
 
-    this.setState({
-      [name]: value,
-    });
-  }
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
 
-  handleSubmit(event) {
-    event.preventDefault();
+  useEffect(() => {
+    setErrMsg();
+  }, [email, pwd]);
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ email, password: pwd }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response.data.content.access_token;
+      const user = response.data.content.user.id;
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", JSON.stringify(accessToken));
+      setAuth({ email, pwd, accessToken });
+      setEmail("");
+      setPwd("");
+      setSuccess(true);
+      navigate("/dashboard");
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
+    }
+  };
 
-  render() {
-    return (
+  return (
+    <>
       <div className="Forms">
         <div className="appAside" />
         <div className="appForm">
@@ -46,7 +75,6 @@ class LoginForm extends Component {
               Login
             </NavLink>
             <NavLink
-              exact
               to="/register"
               activeClassName="pageSwitcherItem-active"
               className="pageSwitcherItem"
@@ -55,11 +83,19 @@ class LoginForm extends Component {
             </NavLink>
           </div>
 
+          <p
+            ref={errRef}
+            className={errMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
+
           <div className="formTitle">
             <h1>Login</h1>{" "}
           </div>
           <div className="formCenter">
-            <form className="formFields" onSubmit={this.handleSubmit}>
+            <form className="formFields" onSubmit={handleSubmit}>
               <div className="formField">
                 <label className="formFieldLabel" htmlFor="email">
                   Email Address
@@ -68,11 +104,13 @@ class LoginForm extends Component {
                   type="email"
                   id="email"
                   className="formFieldInput"
-                  autoComplete="none"
+                  autoComplete="off"
                   placeholder="Enter your email"
                   name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
+                  ref={userRef}
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required
                 />
               </div>
 
@@ -86,8 +124,8 @@ class LoginForm extends Component {
                   className="formFieldInput"
                   placeholder="Enter your password"
                   name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
+                  onChange={(e) => setPwd(e.target.value)}
+                  value={pwd}
                 />
               </div>
 
@@ -100,8 +138,8 @@ class LoginForm extends Component {
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </>
+  );
+};
 
 export default LoginForm;

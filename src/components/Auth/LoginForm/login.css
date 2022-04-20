@@ -89,6 +89,8 @@
   text-transform: uppercase;
   font-size: 0.9em;
   color: white;
+  display: flex;
+  align-items: center;
 }
 .formFieldInput {
   width: 85%;
@@ -119,6 +121,18 @@
   font-weight: 500;
 }
 
+.formFieldButton:disabled {
+  background: linear-gradient(195deg, #d8d8d8, #727272);
+  color: rgb(226, 226, 226);
+  border: none;
+  outline: none;
+  cursor: not-allowed;
+  border-radius: 25px;
+  padding: 15px 70px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
 .formFieldLink {
   color: #66707d;
   text-decoration: none;
@@ -129,7 +143,7 @@
 
 .formFieldCheckboxLabel {
   color: #646f7d;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .formFieldCheckbox {
@@ -148,4 +162,9 @@
 
 .socialMediaButtons {
   padding: 10px 100px 10px 0px;
+}
+
+.activationAcc {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
