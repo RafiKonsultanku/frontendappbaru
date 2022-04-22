@@ -1,22 +1,33 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "../LoginForm/login.css";
-import AuthContext from "../../../context/AuthProvider";
 import axios from "../../../api/axios";
+import useAuth from "../../../hooks/useAuth";
 
 const LOGIN_URL = "/api/login";
 
 const LoginForm = () => {
-  const { setAuth } = useContext(AuthContext);
-  const userRef = useRef();
-  const errRef = useRef();
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/dashboard";
+
+  // const [isLoggedIn, setLoggedIn] = useState(false);
+  // const [isError, setIsError] = useState(false);
+
+  // const referer = props.location.state
+  //   ? props.location.state.referer
+  //   : "/dashboard";
+
+  // const { setAuthTokens } = useAuth();
+
+  const userRef = useRef();
+  const errRef = useRef();
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   // useEffect(() => {
   //   userRef.current.focus();
@@ -25,6 +36,31 @@ const LoginForm = () => {
   useEffect(() => {
     setErrMsg();
   }, [email, pwd]);
+
+  // function postLogin() {
+  //   axios
+  //     .post(LOGIN_URL, {
+  //       email,
+  //       password: pwd,
+  //     })
+  //     .then((result) => {
+  //       if (result.status === 200) {
+  //         setAuthTokens(result.data);
+  //         setLoggedIn(true);
+  //         console.log(result.data);
+  //       } else {
+  //         setIsError(true);
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       setIsError(true);
+  //       console.log(e);
+  //     });
+  // }
+
+  // if (isLoggedIn) {
+  //   return <Navigate to="/dashboard" />;
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,14 +75,13 @@ const LoginForm = () => {
       );
       console.log(JSON.stringify(response?.data));
       const accessToken = response.data.content.access_token;
-      const user = response.data.content.user.id;
-      localStorage.setItem("user", JSON.stringify(user));
+      const userid = response.data.content.user.id;
+      localStorage.setItem("user", JSON.stringify(userid));
       localStorage.setItem("token", JSON.stringify(accessToken));
       setAuth({ email, pwd, accessToken });
       setEmail("");
       setPwd("");
-      setSuccess(true);
-      navigate("/dashboard");
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");

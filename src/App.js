@@ -10,6 +10,7 @@ import Settings from "./layouts/settings";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import RequireAuth from "./components/Auth/RequireAuth";
 // import { withRouter } from "react-router-dom";
 
 const SidebarLayout = () => (
@@ -29,12 +30,18 @@ function App() {
       </Routes>
       <div className="container">
         <Routes>
-          <Route element={<SidebarLayout />}>
-            <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route exact path="/invoice" element={<Invoice />} />
-            <Route exact path="/invoice/:invoiceId" element={<InvoiceData />} />
-            <Route exact path="/invoice/create" element={<InvoiceAdd />} />
-            <Route exact path="/settings" element={<Settings />} />
+          <Route element={<RequireAuth />}>
+            <Route element={<SidebarLayout />}>
+              <Route exact path="/dashboard" element={<Dashboard />} />
+              <Route exact path="/invoice" element={<Invoice />} />
+              <Route
+                exact
+                path="/invoice/:invoiceId"
+                element={<InvoiceData />}
+              />
+              <Route exact path="/invoice/create" element={<InvoiceAdd />} />
+              <Route exact path="/settings" element={<Settings />} />
+            </Route>
           </Route>
         </Routes>
       </div>
