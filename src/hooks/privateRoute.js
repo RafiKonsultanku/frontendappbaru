@@ -1,29 +1,33 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, Router } from "react-router-dom";
 
 import useAuth from "../hooks/useAuth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { authTokens } = useAuth();
+  const { token } = useAuth();
 
   return (
-    <Routes>
-      <Route
-        {...rest}
-        render={(props) =>
-          authTokens ? (
-            <Component {...props} />
-          ) : (
-            <Navigate
-              to={{
-                pathname: "/dashboard",
-                state: { referer: props.location },
-              }}
-            />
-          )
-        }
-      />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route
+          {...rest}
+          render={(props) =>
+            token || localStorage.getItem("token") ? (
+              <Component {...props} />
+            ) : (
+              <Navigate
+                to={{
+                  path: "/login",
+                  state: {
+                    from: props.location,
+                  },
+                }}
+              />
+            )
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 

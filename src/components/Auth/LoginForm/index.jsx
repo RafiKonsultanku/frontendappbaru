@@ -3,6 +3,8 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "../LoginForm/login.css";
 import axios from "../../../api/axios";
 import useAuth from "../../../hooks/useAuth";
+// import useLocalStorage from "../../../hooks/useLocalStorage";
+import useInput from "../../../hooks/useInput";
 
 const LOGIN_URL = "/api/login";
 
@@ -25,9 +27,11 @@ const LoginForm = () => {
   const userRef = useRef();
   const errRef = useRef();
 
-  const [email, setEmail] = useState("");
+  const [email, resetEmail, emailAttribs] = useInput("email", "");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
+
+  // const setUser = useState();
 
   // useEffect(() => {
   //   userRef.current.focus();
@@ -37,30 +41,22 @@ const LoginForm = () => {
     setErrMsg();
   }, [email, pwd]);
 
-  // function postLogin() {
-  //   axios
-  //     .post(LOGIN_URL, {
-  //       email,
-  //       password: pwd,
-  //     })
-  //     .then((result) => {
-  //       if (result.status === 200) {
-  //         setAuthTokens(result.data);
-  //         setLoggedIn(true);
-  //         console.log(result.data);
-  //       } else {
-  //         setIsError(true);
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       setIsError(true);
-  //       console.log(e);
-  //     });
-  // }
-
-  // if (isLoggedIn) {
-  //   return <Navigate to="/dashboard" />;
-  // }
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   const user = { email, pwd };
+  //   // send the username and password to the server
+  //   const response = await axios.post(LOGIN_URL, user, {
+  //     headers: { "Content-Type": "application/json" },
+  //     withCredentials: true,
+  //   });
+  //   // set the state of the user
+  //   setUser({ email, pwd });
+  //   // store the user in localStorage
+  //   localStorage.setItem("token", response.data.content.access_token);
+  //   localStorage.setItem("userid", response.data.content.user.id);
+  //   navigate(from, { replace: true });
+  //   console.log(response.data);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +75,8 @@ const LoginForm = () => {
       localStorage.setItem("user", JSON.stringify(userid));
       localStorage.setItem("token", JSON.stringify(accessToken));
       setAuth({ email, pwd, accessToken });
-      setEmail("");
+      // setEmail("");
+      resetEmail();
       setPwd("");
       navigate(from, { replace: true });
     } catch (err) {
@@ -143,8 +140,9 @@ const LoginForm = () => {
                   placeholder="Enter your email"
                   name="email"
                   ref={userRef}
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
+                  {...emailAttribs}
+                  // onChange={(e) => setEmail(e.target.value)}
+                  // value={email}
                   required
                 />
               </div>

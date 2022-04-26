@@ -57,3 +57,7 @@ code {
 .iconRegistration {
   font-size: 1rem !important;
 }
+
+.otpInput {
+  margin-bottom: 20px;
+}

@@ -5,9 +5,18 @@ import ReceiptIcon from "@mui/icons-material/Receipt";
 import PaymentIcon from "@mui/icons-material/Payment";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { NavLink } from "react-router-dom";
+// import axios from "../../api/axios";
+import useLogout from "../../hooks/useLogout";
+import { NavLink, useNavigate } from "react-router-dom";
 
-export default function index() {
+export default function Index() {
+  const navigate = useNavigate();
+  const logout = useLogout();
+
+  const signOut = async () => {
+    await logout();
+    navigate("/login");
+  };
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -58,7 +67,7 @@ export default function index() {
               <SettingsIcon className="sidebarIcon" />
               Pengaturan
             </NavLink>
-            <li className="sidebarListItem">
+            <li className="sidebarListItem" onClick={signOut}>
               <LogoutIcon className="sidebarIcon" />
               Logout
             </li>
