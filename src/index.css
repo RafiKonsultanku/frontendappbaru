@@ -58,6 +58,11 @@ code {
   font-size: 1rem !important;
 }
 
+.errmsg {
+  color: red;
+  margin-bottom: 20px;
+}
+
 .otpInput {
   margin-bottom: 20px;
 }
