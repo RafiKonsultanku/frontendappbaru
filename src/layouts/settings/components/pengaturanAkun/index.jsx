@@ -5,8 +5,28 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
+import axios from "../../../../api/axios";
+
+const AKUN_URL = "api/profile";
 
 export default function Index() {
+  // state = {
+  //   user: [],
+  //   loading: true,
+  // };
+  const res = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(
+        AKUN_URL,
+        this.setState({
+          user: response.data.user,
+          loading: false,
+        })
+      );
+    } catch (err) {}
+  };
+
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const handleOpen = () => setOpen(true);

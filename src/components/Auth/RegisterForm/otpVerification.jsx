@@ -1,4 +1,4 @@
-import OTPInput, { ResendOTP } from "otp-input-react";
+import OTPInput from "otp-input-react";
 import React, { useState, useRef } from "react";
 import axios from "../../../api/axios";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ function OtpVerification() {
       } else if (err.response?.status === 400) {
         setErrMsg("Kode otp salah");
       } else if (err.response?.status === 401) {
-        setErrMsg("Kode otp sudah kadaluarsa");
+        setErrMsg("Kode otp sudah kadaluarsa, silahkan kirim ulang kode OTP");
       } else {
         setErrMsg("OTP Failed");
       }
@@ -71,7 +71,7 @@ function OtpVerification() {
           </div>
         </form>
       )}
-      <ResendOTP onResendClick={() => console.log("Resend clicked")} />
+      {/* <ResendOTP onResendClick={() => console.log("Resend clicked")} /> */}
     </>
   );
 }

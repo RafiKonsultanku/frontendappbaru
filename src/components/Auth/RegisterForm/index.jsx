@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { ResendOTP } from "otp-input-react";
 import { NavLink } from "react-router-dom";
 import InputMask from "react-input-mask";
 import CheckIcon from "@mui/icons-material/Check";
@@ -10,6 +11,7 @@ import OtpVerification from "./otpVerification";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "api/user";
+const RESEND_URL = "api/kirimulang";
 
 const SignUpForm = () => {
   const userRef = useRef();
@@ -92,6 +94,29 @@ const SignUpForm = () => {
     }
   };
 
+  const handleResend = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(RESEND_URL, JSON.stringify({ email }), {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+      console.log(response.data);
+      console.log(JSON.stringify(response));
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Kode otp salah");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Kode otp sudah kadaluarsa, silahkan kirim ulang kode OTP");
+      } else {
+        setErrMsg("OTP Failed");
+      }
+      errRef.current.focus();
+    }
+  };
+
   // const validateEmail = (e) => {
   //   var email = e.target.value;
 
@@ -137,6 +162,7 @@ const SignUpForm = () => {
                   email anda{" "}
                 </p>
                 <OtpVerification />
+                <ResendOTP value={email} onResendClick={() => handleResend} />
                 {/* <NavLink to="/login">
                   <div className="formField">
                     <button className="formFieldButton">LOGIN</button>{" "}
